@@ -1,11 +1,12 @@
 import { useState } from "react";
+import moment from "moment";
 
 import Modal from 'react-bootstrap/Modal';
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
 
 const AddPetButton = ({ show, handleClose, handleSubmit }) => {
-    const defaultDate = new Date().toLocaleString("en-US");
+    const defaultDate = moment(new Date()).format("YYYY-MM-DD");
 
     const [name, setName] = useState("");
     const [birthdate, setBirthdate] = useState(defaultDate);
