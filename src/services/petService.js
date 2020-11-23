@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-export default {
+const petService = {
     getAll: async () => {
         let res = await axios.get(`http://localhost:5000/api/pets`);
         return res.data || [];
@@ -26,3 +26,5 @@ export default {
         return res;
     }
 }
+
+export default petService;
