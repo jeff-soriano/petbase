@@ -5,7 +5,7 @@ import Modal from 'react-bootstrap/Modal';
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
 
-const AddPetButton = ({ show, handleClose, handleSubmit }) => {
+const AddPetModal = ({ show, handleClose, handleSubmit }) => {
     const defaultDate = moment(new Date()).format("YYYY-MM-DD");
 
     const [name, setName] = useState("");
@@ -54,4 +54,4 @@ const AddPetButton = ({ show, handleClose, handleSubmit }) => {
     );
 }
 
-export default AddPetButton;
+export default AddPetModal;
