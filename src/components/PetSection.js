@@ -12,6 +12,7 @@ import AddPetModal from "./AddPetModal";
 import petService from '../services/petService';
 
 const PetSection = () => {
+    const username = "soriano.jeffm@gmail.com";
     const [pets, setPets] = useState(null);
     const [show, setShow] = useState(false);
 
@@ -23,21 +24,21 @@ const PetSection = () => {
     const handleShow = () => setShow(true);
 
     const getPets = async () => {
-        let res = await petService.getAll();
+        let res = await petService.getAll(username);
         setPets(res);
     }
 
     const handleSubmit = (name, birthdate, description) => {
-        petService.post(name, birthdate, description).then(getPets);
+        petService.post(username, name, birthdate, description).then(getPets);
         handleClose();
     };
 
     const handleDelete = (id) => {
-        petService.delete(id).then(getPets);
+        petService.delete(username, id).then(getPets);
     };
 
     const handleEdit = (id, name, birthdate, description) => {
-        petService.put(id, name, birthdate, description).then(getPets);
+        petService.put(username, id, name, birthdate, description).then(getPets);
     }
 
     return (
