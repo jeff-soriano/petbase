@@ -33,15 +33,21 @@ const PetSection = () => {
         handleClose();
     };
 
+    const handleDelete = (id) => {
+        petService.delete(id).then(getPets);
+    };
+
     return (
         <Container>
             <Row>
                 {pets && pets.map((pet, index) => {
                     return <Col key={index} lg={4} md={6} style={{ marginTop: "25px" }}>
                         <PetCard
+                            petId={pet._id}
                             petName={pet.name}
                             petBirthDate={moment(pet.birthdate).format("MM/DD/YYYY")}
                             petDescription={pet.description}
+                            onDelete={handleDelete}
                         />
                     </Col>
                 })}

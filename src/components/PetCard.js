@@ -1,6 +1,6 @@
 import Card from 'react-bootstrap/Card';
 
-const PetCard = ({ petName, petBirthDate, petDescription }) => {
+const PetCard = ({ petId, petName, petBirthDate, petDescription, onDelete }) => {
     return (
         <Card style={{ width: '18rem' }}>
             <Card.Img variant="top" src="" />
@@ -11,7 +11,7 @@ const PetCard = ({ petName, petBirthDate, petDescription }) => {
             </Card.Body>
             <Card.Body>
                 <Card.Link href="#">Edit</Card.Link>
-                <Card.Link href="#">Delete</Card.Link>
+                <Card.Link href="#" onClick={() => onDelete(petId)}>Delete</Card.Link>
             </Card.Body>
         </Card>
     )
