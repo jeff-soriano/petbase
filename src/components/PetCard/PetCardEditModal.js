@@ -6,7 +6,7 @@ import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 
 const PetCardEditModal = ({ show, handleClose, handleSave,
-    initName, initBirthdate, initDescription }) => {
+    id, initName, initBirthdate, initDescription }) => {
 
     const [name, setName] = useState("");
     const [birthdate, setBirthdate] = useState(new Date());
@@ -46,7 +46,7 @@ const PetCardEditModal = ({ show, handleClose, handleSave,
                         Cancel
                     </Button>
                     <Button variant="primary" type="button"
-                        onClick={() => handleSave(name, birthdate, description)}>
+                        onClick={() => handleSave(id, name, birthdate, description)}>
                         Save changes
                     </Button>
                 </Modal.Footer>

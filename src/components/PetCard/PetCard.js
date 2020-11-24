@@ -6,7 +6,7 @@ import Card from 'react-bootstrap/Card';
 import PetCardDeleteModal from "./PetCardDeleteModal";
 import PetCardEditModal from "./PetCardEditModal";
 
-const PetCard = ({ petId, petName, petBirthDate, petDescription, onDelete }) => {
+const PetCard = ({ petId, petName, petBirthDate, petDescription, onDelete, onEdit }) => {
     const [deleteModalShow, setDeleteModalShow] = useState(false);
     const [editModalShow, setEditModalShow] = useState(false);
 
@@ -21,7 +21,8 @@ const PetCard = ({ petId, petName, petBirthDate, petDescription, onDelete }) => 
         handleDeleteModalClose();
     }
 
-    const handleSave = () => {
+    const handleSave = (id, name, birthdate, description) => {
+        onEdit(id, name, birthdate, description);
         handleEditModalClose();
     }
 
@@ -48,6 +49,7 @@ const PetCard = ({ petId, petName, petBirthDate, petDescription, onDelete }) => 
                 show={editModalShow}
                 handleClose={handleEditModalClose}
                 handleSave={handleSave}
+                id={petId}
                 initName={petName}
                 initBirthdate={petBirthDate}
                 initDescription={petDescription} />

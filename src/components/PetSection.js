@@ -36,6 +36,10 @@ const PetSection = () => {
         petService.delete(id).then(getPets);
     };
 
+    const handleEdit = (id, name, birthdate, description) => {
+        petService.put(id, name, birthdate, description).then(getPets);
+    }
+
     return (
         <Container>
             <Row>
@@ -47,6 +51,7 @@ const PetSection = () => {
                             petBirthDate={pet.birthdate}
                             petDescription={pet.description}
                             onDelete={handleDelete}
+                            onEdit={handleEdit}
                         />
                     </Col>
                 })}
