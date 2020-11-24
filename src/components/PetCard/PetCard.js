@@ -32,7 +32,7 @@ const PetCard = ({ petId, petName, petBirthDate, petDescription, onDelete, onEdi
                 <Card.Img variant="top" src="" />
                 <Card.Body>
                     <Card.Title>{petName}</Card.Title>
-                    <Card.Text>{moment(petBirthDate).format("MM/DD/YYYY")}</Card.Text>
+                    <Card.Text>{moment(petBirthDate).utc().format("MM/DD/YYYY")}</Card.Text>
                     <Card.Text>{petDescription}</Card.Text>
                 </Card.Body>
                 <Card.Body>
