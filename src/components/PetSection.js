@@ -1,5 +1,4 @@
 import { useState, useEffect } from "react";
-import moment from "moment";
 
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
@@ -45,7 +44,7 @@ const PetSection = () => {
                         <PetCard
                             petId={pet._id}
                             petName={pet.name}
-                            petBirthDate={moment(pet.birthdate).format("MM/DD/YYYY")}
+                            petBirthDate={pet.birthdate}
                             petDescription={pet.description}
                             onDelete={handleDelete}
                         />

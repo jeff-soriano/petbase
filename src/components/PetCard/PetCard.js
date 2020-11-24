@@ -1,18 +1,28 @@
 import { useState } from "react";
+import moment from "moment";
 
 import Card from 'react-bootstrap/Card';
 
 import PetCardDeleteModal from "./PetCardDeleteModal";
+import PetCardEditModal from "./PetCardEditModal";
 
 const PetCard = ({ petId, petName, petBirthDate, petDescription, onDelete }) => {
-    const [show, setShow] = useState(false);
+    const [deleteModalShow, setDeleteModalShow] = useState(false);
+    const [editModalShow, setEditModalShow] = useState(false);
 
-    const handleClose = () => setShow(false);
-    const handleShow = () => setShow(true);
+    const handleDeleteModalClose = () => setDeleteModalShow(false);
+    const handleDeleteModalShow = () => setDeleteModalShow(true);
+
+    const handleEditModalClose = () => setEditModalShow(false);
+    const handleEditModalShow = () => setEditModalShow(true);
 
     const handleDelete = () => {
         onDelete(petId);
-        handleClose();
+        handleDeleteModalClose();
+    }
+
+    const handleSave = () => {
+        handleEditModalClose();
     }
 
     return (
@@ -21,19 +31,26 @@ const PetCard = ({ petId, petName, petBirthDate, petDescription, onDelete }) => 
                 <Card.Img variant="top" src="" />
                 <Card.Body>
                     <Card.Title>{petName}</Card.Title>
-                    <Card.Text>{petBirthDate}</Card.Text>
+                    <Card.Text>{moment(petBirthDate).format("MM/DD/YYYY")}</Card.Text>
                     <Card.Text>{petDescription}</Card.Text>
                 </Card.Body>
                 <Card.Body>
-                    <Card.Link href="#">Edit</Card.Link>
-                    <Card.Link href="#" onClick={handleShow}>Delete</Card.Link>
+                    <Card.Link href="#" onClick={handleEditModalShow}>Edit</Card.Link>
+                    <Card.Link href="#" onClick={handleDeleteModalShow}>Delete</Card.Link>
                 </Card.Body>
             </Card>
             <PetCardDeleteModal
-                show={show}
+                show={deleteModalShow}
                 petName={petName}
-                handleClose={handleClose}
+                handleClose={handleDeleteModalClose}
                 handleDelete={handleDelete} />
+            <PetCardEditModal
+                show={editModalShow}
+                handleClose={handleEditModalClose}
+                handleSave={handleSave}
+                initName={petName}
+                initBirthdate={petBirthDate}
+                initDescription={petDescription} />
         </>
     )
 }
