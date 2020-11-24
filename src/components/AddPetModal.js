@@ -12,11 +12,13 @@ const AddPetButton = ({ show, handleClose, handleSubmit }) => {
     const [birthdate, setBirthdate] = useState(defaultDate);
     const [description, setDescription] = useState("");
 
-    const onHandleSubmit = () => {
+    const onHandleSubmit = (e) => {
         handleSubmit(name, birthdate, description);
         setName("");
         setBirthdate(defaultDate);
         setDescription("");
+        e.preventDefault();
+        handleClose();
     }
 
     return (
@@ -40,7 +42,7 @@ const AddPetButton = ({ show, handleClose, handleSubmit }) => {
                     </Form.Group>
                 </Modal.Body>
                 <Modal.Footer>
-                    <Button variant="secondary" onClick={handleClose}>
+                    <Button variant="secondary" type="button" onClick={handleClose}>
                         Close
                     </Button>
                     <Button variant="primary" type="submit">
