@@ -14,11 +14,12 @@ import { useAuth0 } from "@auth0/auth0-react";
 import petService from '../services/petService';
 
 const PetSection = () => {
-    const username = "soriano.jeffm@gmail.com";
     const [pets, setPets] = useState(null);
     const [show, setShow] = useState(false);
 
-    const { getAccessTokenSilently } = useAuth0();
+    const { getAccessTokenSilently, user } = useAuth0();
+    const { email } = user;
+    const username = email;
 
     useEffect(() => {
         getPets();
