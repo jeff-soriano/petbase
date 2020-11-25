@@ -22,6 +22,7 @@ const PetSection = () => {
 
     useEffect(() => {
         getPets();
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [])
 
     const handleClose = () => setShow(false);
