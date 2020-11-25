@@ -8,6 +8,8 @@ import Button from 'react-bootstrap/Button';
 import PetCard from "./PetCard/PetCard";
 import AddPetModal from "./AddPetModal";
 
+import { useAuth0 } from "@auth0/auth0-react";
+
 // SERVICES
 import petService from '../services/petService';
 
@@ -15,6 +17,8 @@ const PetSection = () => {
     const username = "soriano.jeffm@gmail.com";
     const [pets, setPets] = useState(null);
     const [show, setShow] = useState(false);
+
+    const { getAccessTokenSilently } = useAuth0();
 
     useEffect(() => {
         getPets();
@@ -24,21 +28,29 @@ const PetSection = () => {
     const handleShow = () => setShow(true);
 
     const getPets = async () => {
-        let res = await petService.getAll(username);
+        const token = await getAccessTokenSilently();
+
+        let res = await petService.getAll(token, username);
         setPets(res);
     }
 
-    const handleSubmit = (name, birthdate, description) => {
-        petService.post(username, name, birthdate, description).then(getPets);
+    const handleSubmit = async (name, birthdate, description) => {
+        const token = await getAccessTokenSilently();
+
+        petService.post(token, username, name, birthdate, description).then(getPets);
         handleClose();
     };
 
-    const handleDelete = (id) => {
-        petService.delete(username, id).then(getPets);
+    const handleDelete = async (id) => {
+        const token = await getAccessTokenSilently();
+
+        petService.delete(token, username, id).then(getPets);
     };
 
-    const handleEdit = (id, name, birthdate, description) => {
-        petService.put(username, id, name, birthdate, description).then(getPets);
+    const handleEdit = async (id, name, birthdate, description) => {
+        const token = await getAccessTokenSilently();
+
+        petService.put(token, username, id, name, birthdate, description).then(getPets);
     }
 
     return (

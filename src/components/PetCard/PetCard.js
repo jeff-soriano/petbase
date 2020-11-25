@@ -11,10 +11,19 @@ const PetCard = ({ petId, petName, petBirthDate, petDescription, onDelete, onEdi
     const [editModalShow, setEditModalShow] = useState(false);
 
     const handleDeleteModalClose = () => setDeleteModalShow(false);
-    const handleDeleteModalShow = () => setDeleteModalShow(true);
-
     const handleEditModalClose = () => setEditModalShow(false);
-    const handleEditModalShow = () => setEditModalShow(true);
+
+    // Prevent default because withAuthenticationRequired will automatically load the page
+    // which will get rid of the modal
+    const handleDeleteModalShow = (e) => {
+        setDeleteModalShow(true);
+        e.preventDefault();
+    }
+
+    const handleEditModalShow = (e) => {
+        setEditModalShow(true);
+        e.preventDefault();
+    };
 
     const handleDelete = () => {
         onDelete(petId);
