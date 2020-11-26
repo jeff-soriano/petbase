@@ -1,0 +1,46 @@
+.background {
+    background-image: url(./background.png);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: scroll;
+    background-size: cover;
+    color: white;
+}
+
+.vertical-center {
+    min-height: 100%;  /* Fallback for browsers that do NOT support vh unit */
+    min-height: 100vh; /* These two lines are counted as one       */
+  
+    display: flex;
+    align-items: center;
+}
+
+.header {
+    font-family: 'Varela Round', sans-serif;
+    font-size: 110px;
+}
+
+.sub-header {
+    font-family: 'Open Sans', sans-serif;
+    font-size: 40px;
+    margin-bottom: 50px;
+}
+
+div.hr {
+    height: 15px;
+    background: url(./divider.png) no-repeat center;
+    margin: 15px;
+  }
+
+div.hr hr {
+    display: none;
+}
+
+.footer {
+    margin-top: 125px;
+    color: gray;
+}
+
+.footer a {
+    color: gray;
+}

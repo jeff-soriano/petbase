@@ -1,4 +1,3 @@
-import Container from 'react-bootstrap/Container';
 import { Route, Switch } from "react-router-dom";
 
 import Main from "./views/Main";
@@ -10,12 +9,10 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 
 function App() {
   return (
-    <Container>
-      <Switch>
-        <Route path="/" exact component={Home} />
-        <ProtectedRoute path="/pets" exact component={Main} />
-      </Switch>
-    </Container>
+    <Switch>
+      <Route path="/" exact component={Home} />
+      <ProtectedRoute path="/pets" exact component={Main} />
+    </Switch>
   );
 }
 
