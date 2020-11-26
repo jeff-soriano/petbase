@@ -8,7 +8,7 @@ const Navigation = () => {
     const { name } = user;
 
     return (
-        <Navbar bg="light" expand="lg">
+        <Navbar>
             <Navbar.Brand href="#home">{name}'s pets</Navbar.Brand>
             <Navbar.Toggle aria-controls="basic-navbar-nav" />
             {/* <Button className="ml-auto" variant="danger">Log out</Button> */}
