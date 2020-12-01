@@ -11,10 +11,10 @@ const Home = () => {
         <div className="background">
             <div className="vertical-center text-center">
                 <Container>
-                    <div class="main">
+                    <div className="main">
                         <img style={{ margin: "20px" }} src={pawprint} alt="dog" />
                         <h1 className="header">PetBase</h1>
-                        <div class="hr"><hr /></div>
+                        <div className="hr"><hr /></div>
                         <h2 className="sub-header">A simple way to store your pet information</h2>
                         <Link to="/pets"><Button variant="light" size="lg">Get started</Button></Link>
                     </div>
