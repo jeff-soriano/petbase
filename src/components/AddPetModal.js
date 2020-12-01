@@ -11,15 +11,21 @@ const AddPetModal = ({ show, handleClose, handleSubmit }) => {
     const [name, setName] = useState("");
     const [birthdate, setBirthdate] = useState(defaultDate);
     const [description, setDescription] = useState("");
+    const [imgFile, setImgFile] = useState(null);
 
     const onHandleSubmit = (e) => {
-        handleSubmit(name, birthdate, description);
+        handleSubmit(name, birthdate, description, imgFile);
         setName("");
         setBirthdate(defaultDate);
         setDescription("");
         e.preventDefault();
         handleClose();
     }
+
+    const onNameChange = (e) => setName(e.target.value);
+    const onBirthdateChange = (e) => setBirthdate(e.target.value);
+    const onDescriptionChange = (e) => setDescription(e.target.value);
+    const onImgFileChange = (e) => setImgFile(e.target.files[0]);
 
     return (
         <Modal show={show} onHide={handleClose} animation={false}>
@@ -30,15 +36,19 @@ const AddPetModal = ({ show, handleClose, handleSubmit }) => {
                 <Modal.Body>
                     <Form.Group controlId="name">
                         <Form.Label>Name</Form.Label>
-                        <Form.Control value={name} onChange={(e) => setName(e.target.value)} type="text" placeholder="Name" required />
+                        <Form.Control value={name} onChange={onNameChange} type="text" placeholder="Name" required />
                     </Form.Group>
                     <Form.Group controlId="birthdate">
                         <Form.Label>Birthdate</Form.Label>
-                        <Form.Control value={birthdate} onChange={(e) => setBirthdate(e.target.value)} type="date" placeholder="Date" required />
+                        <Form.Control value={birthdate} onChange={onBirthdateChange} type="date" placeholder="Date" required />
                     </Form.Group>
                     <Form.Group controlId="description">
                         <Form.Label>Description</Form.Label>
-                        <Form.Control value={description} onChange={(e) => setDescription(e.target.value)} type="text" placeholder="Description" required />
+                        <Form.Control value={description} onChange={onDescriptionChange} type="text" placeholder="Description" required />
+                    </Form.Group>
+                    <Form.Group controlId="image">
+                        <Form.Label>Upload image</Form.Label>
+                        <Form.File onChange={onImgFileChange} />
                     </Form.Group>
                 </Modal.Body>
                 <Modal.Footer>

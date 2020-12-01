@@ -36,10 +36,10 @@ const PetSection = () => {
         setPets(res);
     }
 
-    const handleSubmit = async (name, birthdate, description) => {
+    const handleSubmit = async (name, birthdate, description, imgFile) => {
         const token = await getAccessTokenSilently();
 
-        petService.post(token, username, name, birthdate, description).then(getPets);
+        petService.post(token, username, name, birthdate, description, imgFile).then(getPets);
         handleClose();
     };
 

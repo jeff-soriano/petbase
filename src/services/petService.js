@@ -9,14 +9,18 @@ const petService = {
         });
         return res.data || [];
     },
-    post: async (token, username, name, birthdate, decription) => {
-        let res = await axios.post(`http://localhost:5000/api/users/` + username + "/pets", {
-            name: name,
-            birthdate: birthdate,
-            description: decription
-        }, {
+    post: async (token, username, name, birthdate, description, imgFile) => {
+        const formData = new FormData();
+        formData.append("name", name);
+        formData.append("birthdate", birthdate);
+        formData.append("description", description);
+        formData.append("imgFile", imgFile);
+
+        let res = await axios.post(`http://localhost:5000/api/users/` + username + "/pets",
+            formData, {
             headers: {
-                Authorization: "Bearer " + token
+                Authorization: "Bearer " + token,
+                'Content-Type': 'multipart/form-data'
             }
         });
         return res;
