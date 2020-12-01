@@ -65,6 +65,7 @@ const PetSection = () => {
                             petName={pet.name}
                             petBirthDate={pet.birthdate}
                             petDescription={pet.description}
+                            petImgUrl={pet.imgFile}
                             onDelete={handleDelete}
                             onEdit={handleEdit}
                         />
