@@ -25,9 +25,15 @@ const petService = {
         });
         return res;
     },
-    delete: async (token, username, id) => {
-        let res = await axios.delete("http://localhost:5000/api/users/" +
-            username + "/pets/" + id, {
+    delete: async (token, username, id, imgKey) => {
+        // Had to use non-alias version since alias version wasn't sending headers
+        // for some reason...
+        let res = await axios({
+            method: "delete",
+            url: "http://localhost:5000/api/users/" + username + "/pets/" + id,
+            data: {
+                imgKey: imgKey
+            },
             headers: {
                 Authorization: "Bearer " + token
             }

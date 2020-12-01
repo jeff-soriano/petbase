@@ -8,7 +8,7 @@ import PetCardEditModal from "./PetCardEditModal";
 
 import placeholderImg from "./placeholder.png";
 
-const PetCard = ({ petId, petName, petBirthDate, petDescription, petImgUrl, onDelete, onEdit }) => {
+const PetCard = ({ petId, petName, petBirthDate, petDescription, petImgUrl, petImgKey, onDelete, onEdit }) => {
     const [deleteModalShow, setDeleteModalShow] = useState(false);
     const [editModalShow, setEditModalShow] = useState(false);
 
@@ -28,7 +28,7 @@ const PetCard = ({ petId, petName, petBirthDate, petDescription, petImgUrl, onDe
     };
 
     const handleDelete = () => {
-        onDelete(petId);
+        onDelete(petId, petImgKey);
         handleDeleteModalClose();
     }
 

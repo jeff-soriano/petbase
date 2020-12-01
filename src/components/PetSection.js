@@ -43,10 +43,10 @@ const PetSection = () => {
         handleClose();
     };
 
-    const handleDelete = async (id) => {
+    const handleDelete = async (id, imgKey) => {
         const token = await getAccessTokenSilently();
 
-        petService.delete(token, username, id).then(getPets);
+        petService.delete(token, username, id, imgKey).then(getPets);
     };
 
     const handleEdit = async (id, name, birthdate, description) => {
@@ -66,6 +66,7 @@ const PetSection = () => {
                             petBirthDate={pet.birthdate}
                             petDescription={pet.description}
                             petImgUrl={pet.imgFile}
+                            petImgKey={pet.imgKey}
                             onDelete={handleDelete}
                             onEdit={handleEdit}
                         />
