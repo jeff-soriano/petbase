@@ -18,6 +18,7 @@ const AddPetModal = ({ show, handleClose, handleSubmit }) => {
         setName("");
         setBirthdate(defaultDate);
         setDescription("");
+        setImgFile(null);
         e.preventDefault();
         handleClose();
     }
