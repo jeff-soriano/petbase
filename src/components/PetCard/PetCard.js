@@ -6,6 +6,8 @@ import Card from 'react-bootstrap/Card';
 import PetCardDeleteModal from "./PetCardDeleteModal";
 import PetCardEditModal from "./PetCardEditModal";
 
+import placeholderImg from "./placeholder.png";
+
 const PetCard = ({ petId, petName, petBirthDate, petDescription, petImgUrl, onDelete, onEdit }) => {
     const [deleteModalShow, setDeleteModalShow] = useState(false);
     const [editModalShow, setEditModalShow] = useState(false);
@@ -38,7 +40,10 @@ const PetCard = ({ petId, petName, petBirthDate, petDescription, petImgUrl, onDe
     return (
         <>
             <Card className="h-100" style={{ width: '18rem' }}>
-                <Card.Img style={{ width: "100%", height: "15vw", objectFit: "cover" }} variant="top" src={petImgUrl} />
+                <Card.Img
+                    style={{ width: "100%", height: "15vw", objectFit: "cover" }}
+                    variant="top"
+                    src={petImgUrl === "" ? placeholderImg : petImgUrl} />
                 <Card.Body className="h-100">
                     <Card.Title>{petName}</Card.Title>
                     <Card.Text>{moment(petBirthDate).utc().format("MM/DD/YYYY")}</Card.Text>
