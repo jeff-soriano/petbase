@@ -1,8 +1,9 @@
 import axios from 'axios';
+import { apiBaseUrl } from "../config/env.dev";
 
 const petService = {
     getAll: async (token, username) => {
-        let res = await axios.get(`http://localhost:5000/api/users/` + username + "/pets", {
+        let res = await axios.get(apiBaseUrl + username + "/pets", {
             headers: {
                 Authorization: "Bearer " + token
             }
@@ -16,7 +17,7 @@ const petService = {
         formData.append("description", description);
         formData.append("imgFile", imgFile);
 
-        let res = await axios.post(`http://localhost:5000/api/users/` + username + "/pets",
+        let res = await axios.post(apiBaseUrl + username + "/pets",
             formData, {
             headers: {
                 Authorization: "Bearer " + token,
@@ -30,7 +31,7 @@ const petService = {
         // for some reason...
         let res = await axios({
             method: "delete",
-            url: "http://localhost:5000/api/users/" + username + "/pets/" + id,
+            url: apiBaseUrl + username + "/pets/" + id,
             data: {
                 imgKey: imgKey
             },
@@ -48,7 +49,7 @@ const petService = {
         formData.append("imgFile", imgFile);
         formData.append("petImgKey", petImgKey);
 
-        let res = await axios.put("http://localhost:5000/api/users/" +
+        let res = await axios.put(apiBaseUrl +
             username + "/pets/" + id,
             formData, {
             headers: {
