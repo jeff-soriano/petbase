@@ -45,7 +45,7 @@ const PetCardEditModal = ({ show, handleClose, handleSave,
                     </Form.Group>
                     <Form.Group controlId="description">
                         <Form.Label>Description</Form.Label>
-                        <Form.Control value={description} onChange={onDescriptionChange} type="text" placeholder="Description" required />
+                        <Form.Control value={description} onChange={onDescriptionChange} as="textarea" placeholder="Description" required />
                     </Form.Group>
                     <Form.Group controlId="image">
                         <Form.Label>Upload image</Form.Label>
