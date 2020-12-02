@@ -3,18 +3,18 @@ import Container from 'react-bootstrap/Container';
 import Navigation from "../components/Navigation";
 import PetSection from "../components/PetSection";
 
-import './Main.css';
+import './Pets.css';
 
-const Main = () => {
+const Pets = () => {
     return (
-        <Container className="main-container">
+        <Container className="pets-container">
             <Navigation />
             <PetSection className="pet-section" />
-            <footer className="main-footer">
+            <footer className="pets-footer">
                 © Jeff Soriano {new Date().getFullYear()}
             </footer>
         </Container>
     );
 }
 
-export default Main;
+export default Pets;

@@ -1,4 +1,4 @@
-.main-container {
+.pets-container {
     display: flex;
     min-height: 100vh;
     flex-direction: column;
@@ -12,6 +12,6 @@
     white-space: pre-wrap;
 }
 
-.main-footer {
+.pets-footer {
     text-align: center;
 }
