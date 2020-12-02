@@ -7,7 +7,7 @@ import Button from 'react-bootstrap/Button';
 
 import PetCard from "./PetCard/PetCard";
 import AddPetModal from "./AddPetModal";
-import Loading from "./Loading";
+import Loading from "./Loading/Loading";
 
 import { useAuth0 } from "@auth0/auth0-react";
 
