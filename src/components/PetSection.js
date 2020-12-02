@@ -13,7 +13,7 @@ import { useAuth0 } from "@auth0/auth0-react";
 // SERVICES
 import petService from '../services/petService';
 
-const PetSection = () => {
+const PetSection = (props) => {
     const [pets, setPets] = useState(null);
     const [show, setShow] = useState(false);
 
@@ -56,7 +56,7 @@ const PetSection = () => {
     }
 
     return (
-        <Container>
+        <Container className={props.className}>
             <Row>
                 {pets && pets.map((pet, index) => {
                     return <Col key={index} lg={4} md={6} style={{ marginTop: "25px" }}>

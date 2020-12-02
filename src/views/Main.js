@@ -7,10 +7,10 @@ import './Main.css';
 
 const Main = () => {
     return (
-        <Container>
+        <Container className="main-container">
             <Navigation />
-            <PetSection />
-            <footer className="footer">
+            <PetSection className="pet-section" />
+            <footer className="main-footer">
                 © Jeff Soriano {new Date().getFullYear()}
             </footer>
         </Container>

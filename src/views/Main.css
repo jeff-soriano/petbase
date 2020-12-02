@@ -1,11 +1,17 @@
+.main-container {
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
+}
+
+.pet-section {
+    flex: 1;
+}
+
 .card-text {
     white-space: pre-wrap;
 }
 
-.footer {
-    position: fixed;
-    left: 0;
-    bottom: 0;
-    width: 100%;
+.main-footer {
     text-align: center;
 }
