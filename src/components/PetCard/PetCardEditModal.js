@@ -15,7 +15,7 @@ const PetCardEditModal = ({ show, handleClose, handleSave,
 
     const initModal = (name, birthdate, description) => {
         setName(name);
-        setBirthdate(moment(birthdate).format("YYYY-MM-DD"));
+        setBirthdate(moment(birthdate).utc().format("YYYY-MM-DD"));
         setDescription(description);
         setImgFile(null);
     }
