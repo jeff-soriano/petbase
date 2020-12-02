@@ -7,6 +7,10 @@
     color: white;
 }
 
+.main {
+    margin-bottom: 100px;
+}
+
 .vertical-center {
     min-height: 100%;  /* Fallback for browsers that do NOT support vh unit */
     min-height: 100vh; /* These two lines are counted as one       */
@@ -37,7 +41,11 @@ div.hr hr {
 }
 
 .footer {
-    margin-top: 125px;
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    text-align: center;
     color: gray;
 }
 
