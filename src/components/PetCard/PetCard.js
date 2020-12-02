@@ -41,7 +41,7 @@ const PetCard = ({ petId, petName, petBirthDate, petDescription, petImgUrl, petI
         <>
             <Card className="h-100" style={{ width: '18rem' }}>
                 <Card.Img
-                    style={{ width: "100%", height: "15vw", objectFit: "cover" }}
+                    style={{ width: "100%", height: "300px", objectFit: "cover" }}
                     variant="top"
                     src={petImgUrl === "" ? placeholderImg : petImgUrl} />
                 <Card.Body className="h-100">
