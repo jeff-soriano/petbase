@@ -1,8 +1,7 @@
 import React from "react";
 import "./Loading.css"
 
-const loadingImg =
-    "https://cdn.auth0.com/blog/auth0-react-sample/assets/loading.svg";
+import loadingImg from "./images/loading.svg";
 
 const Loading = () => (
     <div className="spinner">
