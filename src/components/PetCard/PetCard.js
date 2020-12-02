@@ -6,7 +6,7 @@ import Card from 'react-bootstrap/Card';
 import PetCardDeleteModal from "./PetCardDeleteModal";
 import PetCardEditModal from "./PetCardEditModal";
 
-import placeholderImg from "./placeholder.png";
+import placeholderImg from "./images/placeholder.png";
 
 const PetCard = ({ petId, petName, petBirthDate, petDescription, petImgUrl, petImgKey, onDelete, onEdit }) => {
     const [deleteModalShow, setDeleteModalShow] = useState(false);

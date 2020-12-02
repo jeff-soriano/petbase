@@ -1,5 +1,5 @@
 .background {
-    background-image: url(./background.png);
+    background-image: url(./images/background.png);
     background-position: center;
     background-repeat: no-repeat;
     background-attachment: scroll;
@@ -32,7 +32,7 @@
 
 div.hr {
     height: 15px;
-    background: url(./divider.png) no-repeat center;
+    background: url(./images/divider.png) no-repeat center;
     margin: 15px;
   }
 

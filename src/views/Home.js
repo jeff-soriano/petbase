@@ -3,7 +3,7 @@ import Button from 'react-bootstrap/Button';
 
 import { Link } from "react-router-dom";
 
-import pawprint from "./pawprint.png"
+import pawprint from "./images/pawprint.png"
 import './Home.css';
 
 const Home = () => {
