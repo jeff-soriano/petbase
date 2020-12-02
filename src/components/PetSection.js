@@ -49,10 +49,10 @@ const PetSection = () => {
         petService.delete(token, username, id, imgKey).then(getPets);
     };
 
-    const handleEdit = async (id, name, birthdate, description) => {
+    const handleEdit = async (id, name, birthdate, description, imgFile, petImgKey) => {
         const token = await getAccessTokenSilently();
 
-        petService.put(token, username, id, name, birthdate, description).then(getPets);
+        petService.put(token, username, id, name, birthdate, description, imgFile, petImgKey).then(getPets);
     }
 
     return (

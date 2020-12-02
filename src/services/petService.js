@@ -40,13 +40,17 @@ const petService = {
         });
         return res;
     },
-    put: async (token, username, id, name, birthdate, decription) => {
+    put: async (token, username, id, name, birthdate, description, imgFile, petImgKey) => {
+        const formData = new FormData();
+        formData.append("name", name);
+        formData.append("birthdate", birthdate);
+        formData.append("description", description);
+        formData.append("imgFile", imgFile);
+        formData.append("petImgKey", petImgKey);
+
         let res = await axios.put("http://localhost:5000/api/users/" +
-            username + "/pets/" + id, {
-            name: name,
-            birthdate: birthdate,
-            description: decription
-        }, {
+            username + "/pets/" + id,
+            formData, {
             headers: {
                 Authorization: "Bearer " + token
             }

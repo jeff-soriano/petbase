@@ -32,8 +32,8 @@ const PetCard = ({ petId, petName, petBirthDate, petDescription, petImgUrl, petI
         handleDeleteModalClose();
     }
 
-    const handleSave = (id, name, birthdate, description) => {
-        onEdit(id, name, birthdate, description);
+    const handleSave = (id, name, birthdate, description, imgFile, petImgKey) => {
+        onEdit(id, name, birthdate, description, imgFile, petImgKey);
         handleEditModalClose();
     }
 
@@ -66,7 +66,8 @@ const PetCard = ({ petId, petName, petBirthDate, petDescription, petImgUrl, petI
                 id={petId}
                 initName={petName}
                 initBirthdate={petBirthDate}
-                initDescription={petDescription} />
+                initDescription={petDescription}
+                petImgKey={petImgKey} />
         </>
     )
 }
