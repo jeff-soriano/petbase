@@ -7,7 +7,7 @@ import DeleteIcon from '@material-ui/icons/Delete';
 import Card from 'react-bootstrap/Card';
 
 import PetCardDeleteModal from "./PetCardDeleteModal";
-import PetCardEditModal from "./PetCardEditModal";
+import PetModal from "../PetModal";
 
 import placeholderImg from "./images/placeholder.png";
 
@@ -35,8 +35,8 @@ const PetCard = ({ pet, onDelete, onEdit }) => {
         handleDeleteModalClose();
     }
 
-    const handleSave = (id, name, birthdate, description, imgFile, petImgKey) => {
-        onEdit(id, name, birthdate, description, imgFile, petImgKey);
+    const handleSave = (pet) => {
+        onEdit(pet._id, pet.name, pet.birthdate, pet.description, pet.imgFile, pet.petImgKey);
         handleEditModalClose();
     }
 
@@ -66,15 +66,12 @@ const PetCard = ({ pet, onDelete, onEdit }) => {
                 petName={pet.name}
                 handleClose={handleDeleteModalClose}
                 handleDelete={handleDelete} />
-            <PetCardEditModal
+            <PetModal
                 show={editModalShow}
                 handleClose={handleEditModalClose}
-                handleSave={handleSave}
-                id={pet._id}
-                initName={pet.name}
-                initBirthdate={pet.birthdate}
-                initDescription={pet.description}
-                petImgKey={pet.imgKey} />
+                handleSubmit={handleSave}
+                title={"Edit " + pet.name + "'s information"}
+                pet={pet} />
         </>
     )
 }

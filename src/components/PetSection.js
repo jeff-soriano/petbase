@@ -6,7 +6,7 @@ import Col from 'react-bootstrap/Col';
 import Button from 'react-bootstrap/Button';
 
 import PetCard from "./PetCard/PetCard";
-import AddPetModal from "./AddPetModal";
+import PetModal from "./PetModal";
 import Loading from "./Loading/Loading";
 
 import { useAuth0 } from "@auth0/auth0-react";
@@ -41,10 +41,10 @@ const PetSection = (props) => {
         }
     }
 
-    const handleSubmit = async (name, birthdate, description, imgFile) => {
+    const handleSubmit = async (pet) => {
         const token = await getAccessTokenSilently();
 
-        petService.post(token, username, name, birthdate, description, imgFile).then(getPets);
+        petService.post(token, username, pet.name, pet.birthdate, pet.description, pet.imgFile).then(getPets);
         handleClose();
         setLoading(true);
     };
@@ -81,7 +81,8 @@ const PetSection = (props) => {
                     <Row>
                         <Button onClick={handleShow} style={{ marginTop: "25px" }}>Add pet</Button>
                     </Row>
-                    <AddPetModal show={show} handleClose={handleClose} handleSubmit={handleSubmit} />
+                    <PetModal show={show} handleClose={handleClose} handleSubmit={handleSubmit}
+                        title="Add pet" />
                 </>
             }
         </Container>
