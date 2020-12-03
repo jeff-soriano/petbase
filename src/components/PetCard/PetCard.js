@@ -11,7 +11,7 @@ import PetCardEditModal from "./PetCardEditModal";
 
 import placeholderImg from "./images/placeholder.png";
 
-const PetCard = ({ petId, petName, petBirthDate, petDescription, petImgUrl, petImgKey, onDelete, onEdit }) => {
+const PetCard = ({ pet, onDelete, onEdit }) => {
     const [deleteModalShow, setDeleteModalShow] = useState(false);
     const [editModalShow, setEditModalShow] = useState(false);
 
@@ -31,7 +31,7 @@ const PetCard = ({ petId, petName, petBirthDate, petDescription, petImgUrl, petI
     };
 
     const handleDelete = () => {
-        onDelete(petId, petImgKey);
+        onDelete(pet._id, pet.imgKey);
         handleDeleteModalClose();
     }
 
@@ -46,11 +46,11 @@ const PetCard = ({ petId, petName, petBirthDate, petDescription, petImgUrl, petI
                 <Card.Img
                     style={{ width: "100%", height: "300px", objectFit: "cover" }}
                     variant="top"
-                    src={petImgUrl || placeholderImg} />
+                    src={pet.imgFile || placeholderImg} />
                 <Card.Body className="h-100">
-                    <Card.Title>{petName}</Card.Title>
-                    <Card.Text>{moment(petBirthDate).utc().format("MM/DD/YYYY")}</Card.Text>
-                    <Card.Text>{petDescription}</Card.Text>
+                    <Card.Title>{pet.name}</Card.Title>
+                    <Card.Text>{moment(pet.birthdate).utc().format("MM/DD/YYYY")}</Card.Text>
+                    <Card.Text>{pet.description}</Card.Text>
                 </Card.Body>
                 <Card.Body style={{ marginBottom: "13px" }}>
                     <IconButton style={{ marginLeft: "150px", outline: "none" }} onClick={handleEditModalShow}>
@@ -63,18 +63,18 @@ const PetCard = ({ petId, petName, petBirthDate, petDescription, petImgUrl, petI
             </Card>
             <PetCardDeleteModal
                 show={deleteModalShow}
-                petName={petName}
+                petName={pet.name}
                 handleClose={handleDeleteModalClose}
                 handleDelete={handleDelete} />
             <PetCardEditModal
                 show={editModalShow}
                 handleClose={handleEditModalClose}
                 handleSave={handleSave}
-                id={petId}
-                initName={petName}
-                initBirthdate={petBirthDate}
-                initDescription={petDescription}
-                petImgKey={petImgKey} />
+                id={pet._id}
+                initName={pet.name}
+                initBirthdate={pet.birthdate}
+                initDescription={pet.description}
+                petImgKey={pet.imgKey} />
         </>
     )
 }

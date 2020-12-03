@@ -71,12 +71,7 @@ const PetSection = (props) => {
                         {pets && pets.map((pet, index) => {
                             return <Col key={index} lg={4} md={6} style={{ marginTop: "25px" }}>
                                 <PetCard
-                                    petId={pet._id}
-                                    petName={pet.name}
-                                    petBirthDate={pet.birthdate}
-                                    petDescription={pet.description}
-                                    petImgUrl={pet.imgFile}
-                                    petImgKey={pet.imgKey}
+                                    pet={pet}
                                     onDelete={handleDelete}
                                     onEdit={handleEdit}
                                 />
