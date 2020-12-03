@@ -17,7 +17,7 @@ import petService from '../services/petService';
 const PetSection = (props) => {
     const [pets, setPets] = useState(null);
     const [show, setShow] = useState(false);
-    const [loading, setLoading] = useState(false);
+    const [loading, setLoading] = useState(true);
 
     const { getAccessTokenSilently, user } = useAuth0();
     const { email } = user;
