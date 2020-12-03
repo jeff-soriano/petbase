@@ -1,6 +1,9 @@
 import { useState } from "react";
 import moment from "moment";
 
+import IconButton from '@material-ui/core/IconButton';
+import EditIcon from '@material-ui/icons/Edit';
+import DeleteIcon from '@material-ui/icons/Delete';
 import Card from 'react-bootstrap/Card';
 
 import PetCardDeleteModal from "./PetCardDeleteModal";
@@ -49,9 +52,13 @@ const PetCard = ({ petId, petName, petBirthDate, petDescription, petImgUrl, petI
                     <Card.Text>{moment(petBirthDate).utc().format("MM/DD/YYYY")}</Card.Text>
                     <Card.Text>{petDescription}</Card.Text>
                 </Card.Body>
-                <Card.Body>
-                    <Card.Link href="#" onClick={handleEditModalShow}>Edit</Card.Link>
-                    <Card.Link href="#" onClick={handleDeleteModalShow}>Delete</Card.Link>
+                <Card.Body style={{ marginBottom: "13px" }}>
+                    <IconButton style={{ marginLeft: "150px", outline: "none" }} onClick={handleEditModalShow}>
+                        <EditIcon />
+                    </IconButton>
+                    <IconButton style={{ outline: "none" }} onClick={handleDeleteModalShow}>
+                        <DeleteIcon />
+                    </IconButton>
                 </Card.Body>
             </Card>
             <PetCardDeleteModal
