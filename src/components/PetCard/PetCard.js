@@ -43,7 +43,7 @@ const PetCard = ({ petId, petName, petBirthDate, petDescription, petImgUrl, petI
                 <Card.Img
                     style={{ width: "100%", height: "300px", objectFit: "cover" }}
                     variant="top"
-                    src={petImgUrl === "" ? placeholderImg : petImgUrl} />
+                    src={petImgUrl || placeholderImg} />
                 <Card.Body className="h-100">
                     <Card.Title>{petName}</Card.Title>
                     <Card.Text>{moment(petBirthDate).utc().format("MM/DD/YYYY")}</Card.Text>
