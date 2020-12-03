@@ -14,6 +14,7 @@ const PetModal = ({ show, handleClose, handleSubmit, title, pet }) => {
 
     // Set default pet
     const [currentPet, setCurrentPet] = useState(defaultPet);
+    const [disableButton, setDisableButton] = useState(false);
 
     const onShow = () => {
         if (pet) {
@@ -28,22 +29,46 @@ const PetModal = ({ show, handleClose, handleSubmit, title, pet }) => {
         } else {
             setCurrentPet(defaultPet);
         }
+
+        setDisableButton(false);
     }
 
     const onHandleSubmit = (e) => {
         handleSubmit(currentPet);
         setCurrentPet(defaultPet);
         e.preventDefault();
+        setDisableButton(false);
+        handleClose();
+    }
+
+    const onHandleClose = () => {
+        setDisableButton(false);
         handleClose();
     }
 
     const onNameChange = (e) => setCurrentPet(prevPet => ({ ...prevPet, name: e.target.value }));
     const onBirthdateChange = (e) => setCurrentPet(prevPet => ({ ...prevPet, birthdate: e.target.value }));
     const onDescriptionChange = (e) => setCurrentPet(prevPet => ({ ...prevPet, description: e.target.value }));
-    const onImgFileChange = (e) => setCurrentPet(prevPet => ({ ...prevPet, imgFile: e.target.files[0] }));
+    const onImgFileChange = (e) => {
+        if (e.target.files[0]) {
+            const file = e.target.files[0];
+            switch (file.type) {
+                case "image/png":
+                case "image/jpg":
+                case "image/jpeg":
+                    setDisableButton(false);
+                    break;
+                default:
+                    setDisableButton(true);
+                    alert("Invalid file type. Please choose png, jpg, or jpeg file.");
+                    break;
+            }
+            setCurrentPet(prevPet => ({ ...prevPet, imgFile: file }))
+        }
+    };
 
     return (
-        <Modal show={show} onShow={onShow} onHide={handleClose} animation={false}>
+        <Modal show={show} onShow={onShow} onHide={onHandleClose} animation={false}>
             <Modal.Header closeButton>
                 <Modal.Title>{title}</Modal.Title>
             </Modal.Header>
@@ -63,14 +88,14 @@ const PetModal = ({ show, handleClose, handleSubmit, title, pet }) => {
                     </Form.Group>
                     <Form.Group controlId="image">
                         <Form.Label>Upload image</Form.Label>
-                        <Form.File onChange={onImgFileChange} />
+                        <Form.File accept=".png,.jpg,.jpeg" onChange={onImgFileChange} />
                     </Form.Group>
                 </Modal.Body>
                 <Modal.Footer>
                     <Button variant="secondary" type="button" onClick={handleClose}>
                         Close
                     </Button>
-                    <Button variant="primary" type="submit">
+                    <Button variant="primary" type="submit" disabled={disableButton}>
                         Save Changes
                     </Button>
                 </Modal.Footer>
