@@ -8,8 +8,8 @@ import Button from 'react-bootstrap/Button';
 const PetModal = ({ show, handleClose, handleSubmit, title, pet }) => {
     const defaultDate = moment(new Date()).format("YYYY-MM-DD");
     const defaultPet = {
-        _id: 0, name: "", birthdate: defaultDate, weight: 0, description: "",
-        gender: "", imgFile: null, imgKey: ""
+        name: "", birthdate: defaultDate, weight: 0, description: "",
+        gender: "", imgFile: null, imgKey: null
     };
 
     // Set default pet
