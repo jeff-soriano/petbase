@@ -49,10 +49,10 @@ const PetSection = (props) => {
         setLoading(true);
     };
 
-    const handleDelete = async (id, imgKey) => {
+    const handleDelete = async (pet) => {
         const token = await getAccessTokenSilently();
 
-        petService.delete(token, username, id, imgKey).then(getPets);
+        petService.delete(token, username, pet).then(getPets);
         setLoading(true);
     };
 

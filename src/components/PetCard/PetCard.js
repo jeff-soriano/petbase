@@ -31,7 +31,7 @@ const PetCard = ({ pet, onDelete, onEdit }) => {
     };
 
     const handleDelete = () => {
-        onDelete(pet._id, pet.imgKey);
+        onDelete(pet);
         handleDeleteModalClose();
     }
 
