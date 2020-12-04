@@ -9,7 +9,7 @@ const PetModal = ({ show, handleClose, handleSubmit, title, pet }) => {
     const defaultDate = moment(new Date()).format("YYYY-MM-DD");
     const defaultPet = {
         _id: 0, name: "", birthdate: defaultDate, weight: 0, description: "",
-        imgFile: null, imgKey: ""
+        gender: "", imgFile: null, imgKey: ""
     };
 
     // Set default pet
@@ -24,6 +24,7 @@ const PetModal = ({ show, handleClose, handleSubmit, title, pet }) => {
                 birthdate: pet.birthdate,
                 weight: pet.weight,
                 description: pet.description,
+                gender: pet.gender,
                 imgFile: pet.imgFile,
                 imgKey: pet.imgKey
             })
@@ -49,6 +50,7 @@ const PetModal = ({ show, handleClose, handleSubmit, title, pet }) => {
 
     const onNameChange = (e) => setCurrentPet(prevPet => ({ ...prevPet, name: e.target.value }));
     const onBirthdateChange = (e) => setCurrentPet(prevPet => ({ ...prevPet, birthdate: e.target.value }));
+    const onGenderChange = (e) => setCurrentPet(prevPet => ({ ...prevPet, gender: e.target.value }));
     const onWeightChange = (e) => setCurrentPet(prevPet => ({ ...prevPet, weight: e.target.value }));
     const onDescriptionChange = (e) => setCurrentPet(prevPet => ({ ...prevPet, description: e.target.value }));
     const onImgFileChange = (e) => {
@@ -83,6 +85,16 @@ const PetModal = ({ show, handleClose, handleSubmit, title, pet }) => {
                     <Form.Group controlId="birthdate">
                         <Form.Label>Birthdate</Form.Label>
                         <Form.Control value={moment(currentPet.birthdate).format("YYYY-MM-DD")} onChange={onBirthdateChange} type="date" placeholder="Date" required />
+                    </Form.Group>
+                    <Form.Group controlId="gender">
+                        <Form.Label>Gender</Form.Label>
+                        <Form.Control value={currentPet.gender} onChange={onGenderChange} as="select" placeholder="Gender">
+                            <option>--Select--</option>
+                            <option>Male</option>
+                            <option>Female</option>
+                            <option>Other</option>
+                            <option>Unknown</option>
+                        </Form.Control>
                     </Form.Group>
                     <Form.Group controlId="weight">
                         <Form.Label>Weight (lbs)</Form.Label>

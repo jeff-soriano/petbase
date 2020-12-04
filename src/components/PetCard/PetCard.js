@@ -40,6 +40,23 @@ const PetCard = ({ pet, onDelete, onEdit }) => {
         handleEditModalClose();
     }
 
+    const getGenderIcon = (gender) => {
+        let icon = null;
+        switch (gender) {
+            case "Male":
+                icon = <i className="fas fa-mars float-right"></i>;
+                break;
+            case "Female":
+                icon = <i className="fas fa-venus float-right"></i>;
+                break;
+            default:
+                icon = "";
+                break;
+        }
+
+        return icon;
+    }
+
     return (
         <>
             <Card className="h-100" style={{ width: '18rem' }}>
@@ -48,7 +65,10 @@ const PetCard = ({ pet, onDelete, onEdit }) => {
                     variant="top"
                     src={pet.imgFile || placeholderImg} />
                 <Card.Body className="h-100">
-                    <Card.Title>{pet.name}</Card.Title>
+                    <Card.Title>
+                        {pet.name}
+                        {getGenderIcon(pet.gender)}
+                    </Card.Title>
                     <Card.Text>{moment(pet.birthdate).utc().format("MM/DD/YYYY")}</Card.Text>
                     <Card.Text>{pet.weight > 0 ? pet.weight + " lbs" : ""}</Card.Text>
                     <Card.Text>{pet.description}</Card.Text>
