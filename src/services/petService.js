@@ -53,7 +53,8 @@ const petService = {
             username + "/pets/" + pet._id,
             formData, {
             headers: {
-                Authorization: "Bearer " + token
+                Authorization: "Bearer " + token,
+                'Content-Type': 'multipart/form-data'
             }
         })
             .catch(err => {
