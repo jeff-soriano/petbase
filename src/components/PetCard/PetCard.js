@@ -54,11 +54,11 @@ const PetCard = ({ pet, onDelete, onEdit }) => {
                     <Card.Text>{pet.description}</Card.Text>
                 </Card.Body>
                 <Card.Body style={{ marginBottom: "13px" }}>
-                    <IconButton style={{ marginLeft: "150px", outline: "none" }} onClick={handleEditModalShow}>
-                        <EditIcon />
-                    </IconButton>
-                    <IconButton style={{ outline: "none" }} onClick={handleDeleteModalShow}>
+                    <IconButton className="float-right" style={{ outline: "none" }} onClick={handleDeleteModalShow}>
                         <DeleteIcon />
+                    </IconButton>
+                    <IconButton className="float-right" style={{ outline: "none" }} onClick={handleEditModalShow}>
+                        <EditIcon />
                     </IconButton>
                 </Card.Body>
             </Card>
