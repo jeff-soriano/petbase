@@ -8,7 +8,7 @@ import Button from 'react-bootstrap/Button';
 const PetModal = ({ show, handleClose, handleSubmit, title, pet }) => {
     const defaultDate = moment(new Date()).format("YYYY-MM-DD");
     const defaultPet = {
-        _id: 0, name: "", birthdate: defaultDate, description: "",
+        _id: 0, name: "", birthdate: defaultDate, weight: 0, description: "",
         imgFile: null, imgKey: ""
     };
 
@@ -22,6 +22,7 @@ const PetModal = ({ show, handleClose, handleSubmit, title, pet }) => {
                 _id: pet._id,
                 name: pet.name,
                 birthdate: pet.birthdate,
+                weight: pet.weight,
                 description: pet.description,
                 imgFile: pet.imgFile,
                 imgKey: pet.imgKey
@@ -48,6 +49,7 @@ const PetModal = ({ show, handleClose, handleSubmit, title, pet }) => {
 
     const onNameChange = (e) => setCurrentPet(prevPet => ({ ...prevPet, name: e.target.value }));
     const onBirthdateChange = (e) => setCurrentPet(prevPet => ({ ...prevPet, birthdate: e.target.value }));
+    const onWeightChange = (e) => setCurrentPet(prevPet => ({ ...prevPet, weight: e.target.value }));
     const onDescriptionChange = (e) => setCurrentPet(prevPet => ({ ...prevPet, description: e.target.value }));
     const onImgFileChange = (e) => {
         if (e.target.files[0]) {
@@ -81,6 +83,10 @@ const PetModal = ({ show, handleClose, handleSubmit, title, pet }) => {
                     <Form.Group controlId="birthdate">
                         <Form.Label>Birthdate</Form.Label>
                         <Form.Control value={moment(currentPet.birthdate).format("YYYY-MM-DD")} onChange={onBirthdateChange} type="date" placeholder="Date" required />
+                    </Form.Group>
+                    <Form.Group controlId="weight">
+                        <Form.Label>Weight (lbs)</Form.Label>
+                        <Form.Control value={currentPet.weight} onChange={onWeightChange} type="number" step="0.01" placeholder="Weight" />
                     </Form.Group>
                     <Form.Group controlId="description">
                         <Form.Label>Description</Form.Label>

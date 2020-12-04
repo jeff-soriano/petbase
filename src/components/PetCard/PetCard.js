@@ -50,6 +50,7 @@ const PetCard = ({ pet, onDelete, onEdit }) => {
                 <Card.Body className="h-100">
                     <Card.Title>{pet.name}</Card.Title>
                     <Card.Text>{moment(pet.birthdate).utc().format("MM/DD/YYYY")}</Card.Text>
+                    <Card.Text>{pet.weight > 0 ? pet.weight + " lbs" : ""}</Card.Text>
                     <Card.Text>{pet.description}</Card.Text>
                 </Card.Body>
                 <Card.Body style={{ marginBottom: "13px" }}>

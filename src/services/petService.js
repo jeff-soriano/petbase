@@ -14,6 +14,7 @@ const petService = {
         const formData = new FormData();
         formData.append("name", pet.name);
         formData.append("birthdate", pet.birthdate);
+        formData.append("weight", pet.weight);
         formData.append("description", pet.description);
         formData.append("imgFile", pet.imgFile);
 
@@ -48,6 +49,7 @@ const petService = {
         const formData = new FormData();
         formData.append("name", pet.name);
         formData.append("birthdate", pet.birthdate);
+        formData.append("weight", pet.weight);
         formData.append("description", pet.description);
         formData.append("imgFile", pet.imgFile);
         formData.append("petImgKey", pet.petImgKey);
