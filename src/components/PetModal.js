@@ -77,7 +77,7 @@ const PetModal = ({ show, handleClose, handleSubmit, title, pet }) => {
                     </Form.Group>
                     <Form.Group controlId="birthdate">
                         <Form.Label>Birthdate</Form.Label>
-                        <Form.Control value={moment(currentPet.birthdate).format("YYYY-MM-DD")} onChange={onBirthdateChange} type="date" placeholder="Date" required />
+                        <Form.Control value={moment(currentPet.birthdate).utc().format("YYYY-MM-DD")} onChange={onBirthdateChange} type="date" placeholder="Date" required />
                     </Form.Group>
                     <Form.Group controlId="gender">
                         <Form.Label>Gender</Form.Label>
