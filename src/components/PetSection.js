@@ -56,10 +56,10 @@ const PetSection = (props) => {
         setLoading(true);
     };
 
-    const handleEdit = async (id, name, birthdate, description, imgFile, petImgKey) => {
+    const handleEdit = async (pet) => {
         const token = await getAccessTokenSilently();
 
-        petService.put(token, username, id, name, birthdate, description, imgFile, petImgKey).then(getPets);
+        petService.put(token, username, pet).then(getPets);
         setLoading(true);
     }
 

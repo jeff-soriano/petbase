@@ -36,7 +36,7 @@ const PetCard = ({ pet, onDelete, onEdit }) => {
     }
 
     const handleSave = (pet) => {
-        onEdit(pet._id, pet.name, pet.birthdate, pet.description, pet.imgFile, pet.petImgKey);
+        onEdit(pet);
         handleEditModalClose();
     }
 
