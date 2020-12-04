@@ -19,14 +19,7 @@ const PetModal = ({ show, handleClose, handleSubmit, title, pet }) => {
     const onShow = () => {
         if (pet) {
             setCurrentPet({
-                _id: pet._id,
-                name: pet.name,
-                birthdate: pet.birthdate,
-                weight: pet.weight,
-                description: pet.description,
-                gender: pet.gender,
-                imgFile: pet.imgFile,
-                imgKey: pet.imgKey
+                ...pet
             })
         } else {
             setCurrentPet(defaultPet);

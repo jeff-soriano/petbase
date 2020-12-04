@@ -12,12 +12,9 @@ const petService = {
     },
     post: async (token, username, pet) => {
         const formData = new FormData();
-        formData.append("name", pet.name);
-        formData.append("birthdate", pet.birthdate);
-        formData.append("gender", pet.gender);
-        formData.append("weight", pet.weight);
-        formData.append("description", pet.description);
-        formData.append("imgFile", pet.imgFile);
+        for (const [key, value] of Object.entries(pet)) {
+            formData.append(key, value);
+        }
 
         let res = await axios.post(apiBaseUrl + username + "/pets",
             formData, {
@@ -48,13 +45,9 @@ const petService = {
     },
     put: async (token, username, pet) => {
         const formData = new FormData();
-        formData.append("name", pet.name);
-        formData.append("birthdate", pet.birthdate);
-        formData.append("gender", pet.gender);
-        formData.append("weight", pet.weight);
-        formData.append("description", pet.description);
-        formData.append("imgFile", pet.imgFile);
-        formData.append("petImgKey", pet.petImgKey);
+        for (const [key, value] of Object.entries(pet)) {
+            formData.append(key, value);
+        }
 
         let res = await axios.put(apiBaseUrl +
             username + "/pets/" + pet._id,
