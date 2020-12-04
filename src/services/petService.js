@@ -10,12 +10,12 @@ const petService = {
         });
         return res.data || [];
     },
-    post: async (token, username, name, birthdate, description, imgFile) => {
+    post: async (token, username, pet) => {
         const formData = new FormData();
-        formData.append("name", name);
-        formData.append("birthdate", birthdate);
-        formData.append("description", description);
-        formData.append("imgFile", imgFile);
+        formData.append("name", pet.name);
+        formData.append("birthdate", pet.birthdate);
+        formData.append("description", pet.description);
+        formData.append("imgFile", pet.imgFile);
 
         let res = await axios.post(apiBaseUrl + username + "/pets",
             formData, {

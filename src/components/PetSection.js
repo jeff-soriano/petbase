@@ -44,7 +44,7 @@ const PetSection = (props) => {
     const handleSubmit = async (pet) => {
         const token = await getAccessTokenSilently();
 
-        petService.post(token, username, pet.name, pet.birthdate, pet.description, pet.imgFile).then(getPets);
+        petService.post(token, username, pet).then(getPets);
         handleClose();
         setLoading(true);
     };
