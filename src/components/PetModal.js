@@ -97,8 +97,10 @@ const PetModal = ({ show, handleClose, handleSubmit, title, pet }) => {
                             <option>Bird</option>
                             <option>Cat</option>
                             <option>Dog</option>
+                            <option>Fish</option>
+                            <option>Frog</option>
                             <option>Horse</option>
-                            <option>Rabbit</option>
+                            <option>Spider</option>
                             <option>Other</option>
                         </Form.Control>
                     </Form.Group>
