@@ -6,7 +6,7 @@ import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
 
 const PetModal = ({ show, handleClose, handleSubmit, title, pet }) => {
-    const defaultDate = moment(new Date()).format("YYYY-MM-DD");
+    const defaultDate = moment(new Date(2010, 0, 1)).format("YYYY-MM-DD");
     const defaultPet = {
         name: "", birthdate: defaultDate, weight: 0, description: "",
         gender: "", imgFile: "", imgKey: ""
