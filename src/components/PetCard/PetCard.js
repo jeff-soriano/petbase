@@ -63,7 +63,7 @@ const PetCard = ({ pet, onDelete, onEdit }) => {
                 <Card.Img
                     style={{ width: "100%", height: "300px", objectFit: "cover" }}
                     variant="top"
-                    src={pet.imgFile || placeholderImg} />
+                    src={pet.imgFile.length > 0 ? pet.imgFile : placeholderImg} />
                 <Card.Body className="h-100">
                     <Card.Title>
                         {pet.name}

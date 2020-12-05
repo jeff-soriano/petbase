@@ -9,7 +9,7 @@ const PetModal = ({ show, handleClose, handleSubmit, title, pet }) => {
     const defaultDate = moment(new Date()).format("YYYY-MM-DD");
     const defaultPet = {
         name: "", birthdate: defaultDate, weight: 0, description: "",
-        gender: "", imgFile: null, imgKey: null
+        gender: "", imgFile: "", imgKey: ""
     };
 
     // Set default pet
