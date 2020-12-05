@@ -43,10 +43,8 @@ const petService = {
                 Authorization: "Bearer " + token,
                 'Content-Type': 'multipart/form-data'
             }
-        })
-            .catch(err => {
-                alert(err + "\n You likely uploaded an invalid file type");
-            });
+        }).catch(err => handleErrors(err));
+
         return res;
     },
     delete: async (token, username, pet) => {
@@ -61,7 +59,8 @@ const petService = {
             headers: {
                 Authorization: "Bearer " + token
             }
-        });
+        }).catch(err => handleErrors(err));
+
         return res;
     },
     put: async (token, username, pet) => {
@@ -77,10 +76,8 @@ const petService = {
                 Authorization: "Bearer " + token,
                 'Content-Type': 'multipart/form-data'
             }
-        })
-            .catch(err => {
-                alert(err + "\nYou likely uploaded an invalid file type");
-            });;
+        }).catch(err => handleErrors(err));
+
         return res;
     }
 }
