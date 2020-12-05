@@ -37,9 +37,9 @@ const PetSection = (props) => {
         const token = await getAccessTokenSilently();
 
         let res = await petService.getAll(token, username);
-        if (res.data || res === []) {
+        if (res.data) {
             setLoading(false);
-            setPets(res);
+            setPets(res.data);
         } else {
             setError(true);
         }

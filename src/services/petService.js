@@ -28,7 +28,7 @@ const petService = {
                 Authorization: "Bearer " + token
             }
         }).then(res => {
-            return res.data || [];
+            return res;
         }).catch(err => {
             handleErrors(err);
             return err;
