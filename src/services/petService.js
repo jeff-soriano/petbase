@@ -23,13 +23,18 @@ const handleErrors = (error) => {
 
 const petService = {
     getAll: async (token, username) => {
-        let res = await axios.get(apiBaseUrl + username + "/pets", {
+        const result = await axios.get(apiBaseUrl + username + "/pets", {
             headers: {
                 Authorization: "Bearer " + token
             }
-        }).catch(err => handleErrors(err));
+        }).then(res => {
+            return res.data || [];
+        }).catch(err => {
+            handleErrors(err);
+            return err;
+        });
 
-        return res.data || [];
+        return result;
     },
     post: async (token, username, pet) => {
         const formData = new FormData();

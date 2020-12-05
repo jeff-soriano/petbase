@@ -10,6 +10,7 @@ import PetModal from "./PetModal";
 import Loading from "./Loading/Loading";
 
 import { useAuth0 } from "@auth0/auth0-react";
+import { Redirect } from "react-router-dom";
 
 // SERVICES
 import petService from '../services/petService';
@@ -18,6 +19,7 @@ const PetSection = (props) => {
     const [pets, setPets] = useState(null);
     const [show, setShow] = useState(false);
     const [loading, setLoading] = useState(true);
+    const [error, setError] = useState(false);
 
     const { getAccessTokenSilently, user } = useAuth0();
     const { email } = user;
@@ -35,9 +37,11 @@ const PetSection = (props) => {
         const token = await getAccessTokenSilently();
 
         let res = await petService.getAll(token, username);
-        if (res) {
+        if (res.data || res === []) {
             setLoading(false);
             setPets(res);
+        } else {
+            setError(true);
         }
     }
 
@@ -85,6 +89,7 @@ const PetSection = (props) => {
                         title="Add pet" />
                 </>
             }
+            {error && <Redirect push to="/error" />}
         </Container>
     );
 }
