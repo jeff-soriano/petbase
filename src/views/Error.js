@@ -9,7 +9,7 @@ const Error = () => {
             <h1>Oops!</h1>
             <p>There was an error in the page</p>
             <p>Please try again later</p>
-            <Link to="/"><Button size="lg">Back to home page</Button></Link>
+            <Link to="/"><Button>Back to home page</Button></Link>
         </Container>
     );
 }
