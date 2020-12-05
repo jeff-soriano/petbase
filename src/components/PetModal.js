@@ -91,7 +91,7 @@ const PetModal = ({ show, handleClose, handleSubmit, title, pet }) => {
                     </Form.Group>
                     <Form.Group controlId="weight">
                         <Form.Label>Weight (lbs)</Form.Label>
-                        <Form.Control value={currentPet.weight} onChange={onWeightChange} type="number" step="0.01" placeholder="Weight" />
+                        <Form.Control value={currentPet.weight} onChange={onWeightChange} type="number" min="0" max="300" step="0.01" placeholder="Weight" />
                     </Form.Group>
                     <Form.Group controlId="description">
                         <Form.Label>Description</Form.Label>
