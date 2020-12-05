@@ -57,6 +57,38 @@ const PetCard = ({ pet, onDelete, onEdit }) => {
         return icon;
     }
 
+    const getSpeciesIcon = (species) => {
+        let icon = null;
+        switch (species) {
+            case "Bird":
+                icon = <i style={{ marginLeft: "10px" }} className="fas fa-crow float-right"></i>;
+                break;
+            case "Cat":
+                icon = <i style={{ marginLeft: "10px" }} className="fas fa-cat float-right"></i>;
+                break;
+            case "Dog":
+                icon = <i style={{ marginLeft: "10px" }} className="fas fa-dog float-right"></i>;
+                break;
+            case "Fish":
+                icon = <i style={{ marginLeft: "10px" }} className="fas fa-fish float-right"></i>;
+                break;
+            case "Frog":
+                icon = <i style={{ marginLeft: "10px" }} className="fas fa-frog float-right"></i>;
+                break;
+            case "Horse":
+                icon = <i style={{ marginLeft: "10px" }} className="fas fa-horse float-right"></i>;
+                break;
+            case "Spider":
+                icon = <i style={{ marginLeft: "10px" }} className="fas fa-spider float-right"></i>;
+                break;
+            default:
+                icon = "";
+                break;
+        }
+
+        return icon;
+    }
+
     return (
         <>
             <Card className="h-100" style={{ width: '18rem' }}>
@@ -67,6 +99,7 @@ const PetCard = ({ pet, onDelete, onEdit }) => {
                 <Card.Body className="h-100">
                     <Card.Title>
                         {pet.name}
+                        {getSpeciesIcon(pet.species)}
                         {getGenderIcon(pet.gender)}
                     </Card.Title>
                     <Card.Text>{moment(pet.birthdate).utc().format("MM/DD/YYYY")}</Card.Text>
