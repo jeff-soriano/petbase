@@ -102,7 +102,7 @@ const PetCard = ({ pet, onDelete, onEdit }) => {
                         {getSpeciesIcon(pet.species)}
                         {getGenderIcon(pet.gender)}
                     </Card.Title>
-                    <Card.Text>{moment(pet.birthdate).utc().format("MM/DD/YYYY")}</Card.Text>
+                    <Card.Text>{moment(pet.birthdate).format("MM/DD/YYYY")}</Card.Text>
                     <Card.Text>{pet.weight > 0 ? pet.weight + " lbs" : ""}</Card.Text>
                     <Card.Text>{pet.description}</Card.Text>
                 </Card.Body>
