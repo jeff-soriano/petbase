@@ -8,8 +8,8 @@ import Button from 'react-bootstrap/Button';
 const PetModal = ({ show, handleClose, handleSubmit, title, pet }) => {
     const defaultDate = moment(new Date(2010, 0, 1)).format("YYYY-MM-DD");
     const defaultPet = {
-        name: "", birthdate: defaultDate, weight: 0, description: "",
-        gender: "", imgFile: "", imgKey: ""
+        name: "", birthdate: defaultDate, gender: "", species: "",
+        weight: 0, description: "", imgFile: "", imgKey: ""
     };
 
     // Set default pet
@@ -44,6 +44,7 @@ const PetModal = ({ show, handleClose, handleSubmit, title, pet }) => {
     const onNameChange = (e) => setCurrentPet(prevPet => ({ ...prevPet, name: e.target.value }));
     const onBirthdateChange = (e) => setCurrentPet(prevPet => ({ ...prevPet, birthdate: e.target.value }));
     const onGenderChange = (e) => setCurrentPet(prevPet => ({ ...prevPet, gender: e.target.value }));
+    const onSpeciesChange = (e) => setCurrentPet(prevPet => ({ ...prevPet, species: e.target.value }));
     const onWeightChange = (e) => setCurrentPet(prevPet => ({ ...prevPet, weight: e.target.value }));
     const onDescriptionChange = (e) => setCurrentPet(prevPet => ({ ...prevPet, description: e.target.value }));
     const onImgFileChange = (e) => {
@@ -87,6 +88,18 @@ const PetModal = ({ show, handleClose, handleSubmit, title, pet }) => {
                             <option>Female</option>
                             <option>Other</option>
                             <option>Unknown</option>
+                        </Form.Control>
+                    </Form.Group>
+                    <Form.Group controlId="gender">
+                        <Form.Label>Species</Form.Label>
+                        <Form.Control value={currentPet.species} onChange={onSpeciesChange} as="select" placeholder="Species">
+                            <option>--Select--</option>
+                            <option>Bird</option>
+                            <option>Cat</option>
+                            <option>Dog</option>
+                            <option>Horse</option>
+                            <option>Rabbit</option>
+                            <option>Other</option>
                         </Form.Control>
                     </Form.Group>
                     <Form.Group controlId="weight">
