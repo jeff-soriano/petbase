@@ -24,13 +24,43 @@
 
 .header {
     font-family: 'Varela Round', sans-serif;
-    font-size: 110px;
+    font-size: 8vw;
 }
 
 .sub-header {
     font-family: 'Open Sans', sans-serif;
-    font-size: 40px;
+    font-size: 2vw;
     margin-bottom: 50px;
+}
+
+/* According to bootstrap: small laptop size */
+@media only screen and (max-width: 1200px) {
+    .header {
+        font-size: 11vw;
+    }
+    .sub-header {
+        font-size: 2.75vw;
+    }
+}
+
+/* According to bootstrap: tablet size */
+@media only screen and (max-width: 992px) {
+    .header {
+        font-size: 14vw;
+    }
+    .sub-header {
+        font-size: 3.5vw;
+    }
+}
+
+/* According to bootstrap: phone size */
+@media only screen and (max-width: 768px) {
+    .header {
+        font-size: 17vw;
+    }
+    .sub-header {
+        font-size: 4.25vw;
+    }
 }
 
 div.hr {
